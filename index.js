@@ -40,6 +40,12 @@ async function run(){
     try {
         const todosCollection = client.db('todo-app').collection('todos')
 
+        app.post('/add-todo', async(req, res)=>{
+          const todo = req.body;
+          const result = await todosCollection.insertOne(todo);
+          res.send(result)
+        })
+
 
     }
     finally{
