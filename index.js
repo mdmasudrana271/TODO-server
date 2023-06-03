@@ -75,7 +75,7 @@ async function run(){
           const email = req.query.email;
           const decoded = req.decoded;
           if(decoded.email !== email){
-          return  res.status(403).send({message: "unathorized access"})
+           res.status(403).send({message: "unathorized access"})
           }
           const query = { email: email };
           const result = await todosCollection.find(query).sort({ $natural: -1 }).toArray();
